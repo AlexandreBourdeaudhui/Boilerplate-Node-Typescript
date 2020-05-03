@@ -11,7 +11,7 @@ import debug from 'debug';
 /*
  * Init
  */
-const logInfo = debug('{{ProjectName}}:database:info');
+const log = debug('{{ProjectName}}:database');
 const logErr = debug('{{ProjectName}}:database:error');
 
 // Mongoose
@@ -38,12 +38,12 @@ const connectDatabase = () => {
 
   // Event : {Open}
   mongoose.connection.once('open', () => {
-    logInfo(`Mongoose is running to URI ${uri}`);
+    log(`Mongoose is running to URI ${uri}`);
   });
 
   // Event : {Reconnected}
   mongoose.connection.on('reconnected', () => {
-    logInfo('reconnected');
+    log('reconnected');
   });
 
   // Event : {Error}
@@ -60,7 +60,7 @@ const connectDatabase = () => {
       // Wait for a bit,
       setTimeout(() => {
         // Try to connect again
-        logInfo('Retrying first connect...');
+        log('Retrying first connect...');
         mongoose
           .connect(uri, options as mongoose.ConnectionOptions)
           .catch(() => {});
@@ -73,7 +73,7 @@ const connectDatabase = () => {
 
   // Event : {Disconnected}
   mongoose.connection.on('disconnected', () => {
-    logInfo('Mongoose is disconnected');
+    log('Mongoose is disconnected');
   });
 };
 
