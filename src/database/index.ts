@@ -11,25 +11,11 @@ import debug from 'debug';
 /*
  * Init
  */
-const logInfo = debug('{{ProjectName}}:info');
-const logErr = debug('{{ProjectName}}:error');
+const logInfo = debug('{{ProjectName}}:database:info');
+const logErr = debug('{{ProjectName}}:database:error');
 
 // Mongoose
 const uri = process.env.MONGO_URI;
-console.log({ uri });
-
-/*
- * Code
- */
-
-// Mongoose options
-const options = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  keepAlive: true,
-  socketTimeoutMS: 0,
-};
 
 // Tell Mongoose to use ES6 promises
 (mongoose as any).Promise = global.Promise;
@@ -38,6 +24,15 @@ const options = {
  * Database Mongoose
  */
 const connectDatabase = () => {
+  // Mongoose options
+  const options = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    keepAlive: true,
+    socketTimeoutMS: 0,
+  };
+
   // Create the database connection
   mongoose.connect(uri, options as mongoose.ConnectionOptions);
 

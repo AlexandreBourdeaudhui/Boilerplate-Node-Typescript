@@ -8,7 +8,7 @@ import status from 'http-status';
 /*
  * Local Import
  */
-import server from 'src/server';
+import server from '../../src/server';
 
 /*
  * Init
@@ -20,8 +20,6 @@ should();
  */
 describe('** Controllers - Index **', () => {
   it('should return 404', (done) => {
-    request(server)
-      .get('/fake/route')
-      .expect(status.NOT_FOUND, done);
+    request(server).get('/fake/route').expect(status.NOT_FOUND, done);
   });
 });
