@@ -16,11 +16,13 @@ const apiRoutes = Router();
  * Routes
  */
 export default (app: Application) => {
-  /*
-   * Basic Routes
+  /**
+   * Homepage
+   * @method GET
+   * @routes "/"
    */
   app.get('/', (req: Request, res: Response) => {
-    res.send('Hello');
+    res.render('home');
   });
 
   /*

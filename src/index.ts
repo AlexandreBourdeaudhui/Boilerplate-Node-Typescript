@@ -53,6 +53,10 @@ app.use(
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// View template
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
+
 // CORS • API : https://github.com/expressjs/cors#configuration-options
 app.use(cors());
 
