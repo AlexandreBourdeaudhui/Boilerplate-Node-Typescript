@@ -19,10 +19,13 @@ export default (app: Application) => {
   /**
    * Homepage
    * @method GET
-   * @routes "/"
+   * @route "/"
    */
   app.get('/', (req: Request, res: Response) => {
-    res.render('home');
+    res.render('home', {
+      title: 'Home title',
+      description: 'Home description',
+    });
   });
 
   /*
