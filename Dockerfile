@@ -1,12 +1,15 @@
-#
+# Base Image
 FROM node:14
 
-#
-RUN mkdir /app
-WORKDIR /app
+# Create user
+USER node
+
+# Create new directory for the app
+RUN mkdir -p /home/node/app && chown -R node:node /home/node/app
+WORKDIR /home/node/app
 
 #
-COPY . .
+COPY --chown=node:node . .
 
 # Install dependencies
 RUN yarn install

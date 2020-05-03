@@ -3,12 +3,15 @@ version: '3.7'
 services:
   database:
     image: 'mongo:4.2'
+    env_file: .env
+    environment:
+      - MONGO_URI=$MONGO_URI
+
     ports:
       - '27017:27017'
 
   web:
-    build:
-      context: '.'
+    build: '.'
     ports:
       - '3000:3000'
     depends_on:
