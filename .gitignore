@@ -19,6 +19,4 @@ node_modules
 /dist
 
 # Config Server
-/config/test.json
-/config/development.json
-/config/production.json
+.env

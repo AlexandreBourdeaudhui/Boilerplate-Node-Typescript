@@ -2,12 +2,13 @@
  * Package Import
  */
 import express from 'express';
+import path from 'path';
 import cors from 'cors';
-import config from 'config';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import serveStatic from 'serve-static';
+import dotenv from 'dotenv';
 
 /*
  * Local Import
@@ -19,12 +20,10 @@ import routes from './routes';
 /*
  * Init
  */
-
-// Express
 const app = express();
 
-// Static Frontend Files
-const publicPath: string = config.get('Path.public');
+// Dotenv
+dotenv.config();
 
 /*
  * Middlewares
@@ -44,7 +43,7 @@ app.disable('x-powered-by');
 
 // Static Frontend Files
 app.use(
-  serveStatic(publicPath, {
+  serveStatic(path.join(__dirname, 'public'), {
     index: false,
     maxAge: '30d',
   }),
@@ -54,12 +53,10 @@ app.use(
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// CORS
-// API : https://github.com/expressjs/cors#configuration-options
+// CORS • API : https://github.com/expressjs/cors#configuration-options
 app.use(cors());
 
-// Logger
-// API : https://github.com/expressjs/morgan
+// Logger • API : https://github.com/expressjs/morgan
 // `dev` is equal to `:method :url :status :response-time ms`
 if (isDev) {
   app.use(morgan('dev'));

@@ -1,20 +1,23 @@
 /*
  * Package Import
  */
-import config from 'config';
 import debug from 'debug';
 
 /*
  * Local Import
  */
 import app from './index';
-import database from './database';
+import initializeDatabase from './database';
 
 /*
  * Init
  */
 const log = debug('{{ProjectName}}');
-const { port } = config.get('Server');
+
+/*
+ * Code
+ */
+const port = process.env.NODE_PORT || 3000;
 
 /*
  * Server • Node.js
@@ -27,7 +30,7 @@ const server = app.listen(port, () => {
 /*
  * Database • Mongoose
  */
-database();
+initializeDatabase();
 
 /*
  * Export
