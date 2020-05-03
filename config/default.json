@@ -1,0 +1,11 @@
+{
+  "Database": {
+    "options": {
+      "useNewUrlParser": true,
+      "useUnifiedTopology": true,
+      "useCreateIndex": true,
+      "keepAlive": true,
+      "socketTimeoutMS": 0
+    }
+  }
+}

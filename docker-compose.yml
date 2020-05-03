@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  database:
+    image: 'mongo:4.2'
+    ports:
+      - '27017:27017'
+
+  web:
+    build:
+      context: '.'
+    ports:
+      - '3000:3000'
+    depends_on:
+      - 'database'

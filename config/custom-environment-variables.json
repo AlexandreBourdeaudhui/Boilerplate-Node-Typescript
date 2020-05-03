@@ -1,0 +1,12 @@
+{
+  "Server": {
+    "port": "NODE_PORT"
+  },
+  "Database": {
+    "uri": "MONGO_URI"
+  },
+  "Path": {
+    "public": "PUBLIC_PATH",
+    "index": "INDEX_PATH"
+  }
+}

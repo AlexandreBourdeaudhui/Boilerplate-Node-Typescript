@@ -1,0 +1,24 @@
+# Externals scripts
+/vendor
+
+# Mac Thumbs Files
+.DS_Store
+
+# Dependencies NPM / Yarn
+node_modules
+
+# Editor Configuration
+.vscode
+
+# Logs
+/*.log
+
+# Javascript Compiled.
+/public
+/build
+/dist
+
+# Config Server
+/config/test.json
+/config/development.json
+/config/production.json
