@@ -12,7 +12,7 @@ import initializeDatabase from './database';
 /*
  * Init
  */
-const log = debug('{{ProjectName}}');
+const log = debug('app');
 
 /*
  * Code

@@ -11,8 +11,8 @@ import debug from 'debug';
 /*
  * Init
  */
-const log = debug('{{ProjectName}}:database');
-const logErr = debug('{{ProjectName}}:database:error');
+const log = debug('app:database');
+const logErr = debug('app:database:error');
 
 // Mongoose
 const uri = process.env.MONGO_URI;
